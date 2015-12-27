@@ -1,3 +1,5 @@
+import static java.lang.String.format;
+
 public class Program {
     private final RoverFactory factory;
 
@@ -6,19 +8,30 @@ public class Program {
     }
 
     public String run(String input) {
-        String[] lines = input.split(String.format("%n"));
+        String[] lines = input.split(format("%n"));
+        StringBuilder builder = new StringBuilder();
 
-        String statusLine = lines[1];
-        String[] statusTokens = statusLine.split(" ");
-        int x = Integer.parseInt(statusTokens[0]);
-        int y = Integer.parseInt(statusTokens[1]);
-        Orientation orientation = Orientation.valueOf(statusTokens[2]);
+        int line = 1;
+        while (line < lines.length) {
+            if (line > 1) {
+                builder.append(format("%n"));
+            }
 
-        Rover rover = factory.create(x, y, orientation);
+            String statusLine = lines[line];
+            String[] statusTokens = statusLine.split(" ");
+            int x = Integer.parseInt(statusTokens[0]);
+            int y = Integer.parseInt(statusTokens[1]);
+            Orientation orientation = Orientation.valueOf(statusTokens[2]);
 
-        String actionLine = lines[2];
-        Position position = rover.execute(actionLine);
+            Rover rover = factory.create(x, y, orientation);
 
-        return position.toString();
+            String actionLine = lines[line + 1];
+            Position position = rover.execute(actionLine);
+
+            builder.append(position.toString());
+            line += 2;
+        }
+
+        return builder.toString();
     }
 }

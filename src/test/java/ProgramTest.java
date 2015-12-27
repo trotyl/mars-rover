@@ -39,4 +39,13 @@ public class ProgramTest {
 
         assertThat(output, is("5 1 E"));
     }
+
+    @Test
+    public void should_have_proper_result_with_multi_rovers() {
+        String input = String.format("5 5%n1 2 N%nLMLMLMLMM%n3 3 E%nMMRMMRMRRM");
+
+        String output = program.run(input);
+
+        assertThat(output, is(String.format("1 3 N%n5 1 E")));
+    }
 }
