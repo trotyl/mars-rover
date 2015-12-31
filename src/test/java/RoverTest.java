@@ -60,4 +60,12 @@ public class RoverTest {
         assertThat(status.toString(), is("0 1 W"));
     }
 
+    @Test
+    public void should_produce_10N_for_command_RML_start_from_00N_in_range_55() {
+        Rover rover = new Rover(new Position(0, 0), Orientation.N, new Range(5, 5));
+        Status status = rover.execute("RML");
+
+        assertThat(status.toString(), is("1 0 N"));
+    }
+
 }
