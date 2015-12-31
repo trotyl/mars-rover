@@ -26,9 +26,9 @@ public class Program {
             Rover rover = factory.create(x, y, orientation);
 
             String actionLine = lines[line + 1];
-            Position position = rover.execute(actionLine);
+            Status status = rover.execute(actionLine);
 
-            builder.append(position.toString());
+            builder.append(status.toString());
             line += 2;
         }
 

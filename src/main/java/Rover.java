@@ -9,11 +9,12 @@ public class Rover {
         this.orientation = orientation;
     }
 
-    public Position execute(String commands) {
+    public Status execute(String commands) {
+        Position position = new Position(0, 0);
         if (commands.equals("L")) {
-            return new Position(0, 0, Orientation.W);
+            return new Status(position, Orientation.W);
         }
-        return new Position(0, 0, Orientation.N);
+        return new Status(position, Orientation.N);
     }
 
     public void setRange(int maxX, int maxY) {

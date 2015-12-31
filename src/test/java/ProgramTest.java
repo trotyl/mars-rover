@@ -13,8 +13,8 @@ public class ProgramTest {
     @Before
     public void setUp() {
         Rover rover = mock(Rover.class);
-        when(rover.execute("LMLMLMLMM")).thenReturn(new Position(1, 3, Orientation.N));
-        when(rover.execute("MMRMMRMRRM")).thenReturn(new Position(5, 1, Orientation.E));
+        when(rover.execute("LMLMLMLMM")).thenReturn(new Status(new Position(1, 3), Orientation.N));
+        when(rover.execute("MMRMMRMRRM")).thenReturn(new Status(new Position(5, 1), Orientation.E));
 
         RoverFactory factory = mock(RoverFactory.class);
         when(factory.create(anyInt(), anyInt(), any(Orientation.class))).thenReturn(rover);
