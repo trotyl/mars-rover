@@ -27,4 +27,12 @@ public class RoverTest {
 
         assertThat(status.toString(), is("0 0 S"));
     }
+
+    @Test
+    public void should_produce_00E_for_command_R_start_from_00N_in_range_55() {
+        Rover rover = new Rover(0, 0, Orientation.N, new Range(5, 5));
+        Status status = rover.execute("R");
+
+        assertThat(status.toString(), is("0 0 E"));
+    }
 }
