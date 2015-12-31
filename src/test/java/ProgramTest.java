@@ -17,7 +17,7 @@ public class ProgramTest {
         when(rover.execute("MMRMMRMRRM")).thenReturn(new Status(new Position(5, 1), Orientation.E));
 
         RoverFactory factory = mock(RoverFactory.class);
-        when(factory.create(anyInt(), anyInt(), any(Orientation.class))).thenReturn(rover);
+        when(factory.create(anyInt(), anyInt(), any(Orientation.class), any(Range.class))).thenReturn(rover);
 
         program = new Program(factory);
     }
