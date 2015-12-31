@@ -11,4 +11,12 @@ public class Position {
     public String toString() {
         return x + " " + y ;
     }
+
+    public Position shift(Orientation orientation, Range range) {
+        Vector vector = orientation.vector();
+        int newX = x + vector.x;
+        int newY = y + vector.y;
+
+        return range.cover(newX, newY);
+    }
 }

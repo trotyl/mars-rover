@@ -15,6 +15,8 @@ public class Rover {
             orientation = orientation.left();
         } else if (commands.equals("R")) {
             orientation = orientation.right();
+        } else if (commands.equals("M")) {
+            position = position.shift(orientation, range);
         }
         return new Status(position, orientation);
     }
