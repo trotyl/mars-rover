@@ -12,12 +12,16 @@ public class Rover {
 
     public Status execute(String commands) {
         for (char c : commands.toCharArray()) {
-            if (c == 'L') {
-                orientation = orientation.left();
-            } else if (c == 'R') {
-                orientation = orientation.right();
-            } else if (c == 'M') {
-                position = position.shift(orientation, range);
+            switch (c) {
+                case 'L':
+                    orientation = orientation.left();
+                    break;
+                case 'R':
+                    orientation = orientation.right();
+                    break;
+                case 'M':
+                    position = position.shift(orientation, range);
+                    break;
             }
         }
         return new Status(position, orientation);
