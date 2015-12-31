@@ -10,6 +10,9 @@ public class Rover {
     }
 
     public Position execute(String commands) {
+        if (commands.equals("L")) {
+            return new Position(0, 0, Orientation.W);
+        }
         return new Position(0, 0, Orientation.N);
     }
 

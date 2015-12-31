@@ -12,4 +12,13 @@ public class RoverTest {
 
         assertThat(position.toString(), is("0 0 N"));
     }
+
+    @Test
+    public void should_produce_00W_for_command_L_start_from_00N_in_range_55() {
+        Rover rover = new Rover(0, 0, Orientation.N);
+        rover.setRange(5, 5);
+        Position position = rover.execute("L");
+
+        assertThat(position.toString(), is("0 0 W"));
+    }
 }
