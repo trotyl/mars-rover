@@ -10,6 +10,10 @@ public class Rover {
     }
 
     public Position execute(String commands) {
-        return null;
+        return new Position(0, 0, Orientation.N);
+    }
+
+    public void setRange(int maxX, int maxY) {
+
     }
 }
