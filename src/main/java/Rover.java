@@ -9,8 +9,8 @@ public class Rover {
 
     public Status execute(String commands) {
         if (commands.equals("L")) {
-            return new Status(position, Orientation.W);
+            orientation = Orientation.W;
         }
-        return new Status(position, Orientation.N);
+        return new Status(position, orientation);
     }
 }
