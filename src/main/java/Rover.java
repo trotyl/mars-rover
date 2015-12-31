@@ -1,10 +1,13 @@
 public class Rover {
     private Position position;
     private Orientation orientation;
+    private final Range range;
 
-    public Rover(int x, int y, Orientation orientation, Range range) {
-        this.position = new Position(x, y);
-        this.orientation = orientation;
+    public Rover(Position position, Orientation n, Range range) {
+
+        this.position = position;
+        orientation = n;
+        this.range = range;
     }
 
     public Status execute(String commands) {
