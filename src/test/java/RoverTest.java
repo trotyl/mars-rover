@@ -19,4 +19,12 @@ public class RoverTest {
 
         assertThat(status.toString(), is("0 0 W"));
     }
+
+    @Test
+    public void should_produce_00S_for_command_L_start_from_00W_in_range_55() {
+        Rover rover = new Rover(0, 0, Orientation.W, new Range(5, 5));
+        Status status = rover.execute("L");
+
+        assertThat(status.toString(), is("0 0 S"));
+    }
 }

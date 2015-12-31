@@ -9,7 +9,7 @@ public class Rover {
 
     public Status execute(String commands) {
         if (commands.equals("L")) {
-            orientation = Orientation.W;
+            orientation = orientation.left();
         }
         return new Status(position, orientation);
     }
