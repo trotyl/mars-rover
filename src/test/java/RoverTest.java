@@ -52,4 +52,12 @@ public class RoverTest {
         assertThat(status.toString(), is("0 1 N"));
     }
 
+    @Test
+    public void should_produce_01W_for_command_M_start_from_11W_in_range_55() {
+        Rover rover = new Rover(new Position(1, 1), Orientation.W, new Range(5, 5));
+        Status status = rover.execute("M");
+
+        assertThat(status.toString(), is("0 1 W"));
+    }
+
 }
